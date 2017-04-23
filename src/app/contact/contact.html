@@ -13,6 +13,82 @@
 <!-- TAG HOME SECTION END-->
 <div class="just-sec">
     <div class="container">
+        <div class="row" *ngFor="let envVar of envVars.controls;let x=index;">
+            <div class="form-group enquiry-form" [formGroup]="envVar">
+                <!--<input formControlName="key" placeholder="Key">
+                <input formControlName="value" placeholder="Value">-->
+                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        <label>Value</label>
+                        <input type="text" class="form-control" formControlName="value" placeholder="Value">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                    <div class="form-group">
+                        <label>Voltage</label>
+                        <input type="text" class="form-control" formControlName="voltage" placeholder="Voltage">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control" formControlName="category">
+                            <option value="">Select Category</option>
+                            <option value="abc">Abc</option>
+                            <option value="xyz">Xyz</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="form-group">
+                        <label>Misc</label>
+                        <input type="text" class="form-control" formControlName="misc" placeholder="Misc">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                    <label></label>
+                    <button type="button" class="btn btn-danger" (click)="deleteEnvVar(x)">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" (click)="addEnvVar()">Add Row</button>
+            <button type="button" class="btn btn-success" (click)="submitEnquiry()">Submit</button>
+        </div>
+        <!--<form class="enquiry-form">
+            <div class="row" *ngFor="let enquiry of enquiryModel;let x=index;">
+                <div [style.display]="enquiry.isVisible?'block':'none'">
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <div class="form-group">
+                            <label>Value</label>
+                            <input type="text" class="form-control" name="value" placeholder="Value" [(ngModel)]="enquiry.value" (ngModelChange)="isFilled(x)">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <div class="form-group">
+                            <label>Voltage</label>
+                            <input type="text" class="form-control" name="voltage" placeholder="Voltage" [(ngModel)]="enquiry.voltage">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-control" name="category" [(ngModel)]="enquiry.category" (ngModelChange)="isFilled(x)">
+                                <option value="">Select Category</option>
+                                <option value="abc">Abc</option>
+                                <option value="xyz">Xyz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label>Misc</label>
+                            <input type="text" class="form-control" name="misc" placeholder="Misc" [(ngModel)]="enquiry.misc">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>-->
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="just-txt-div">
@@ -26,12 +102,6 @@
                     </p>
                     <p>
                         <strong>  E-mail: </strong> info@yourdomain.com
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis felis dolor vitae.
                     </p>
                 </div>
             </div>

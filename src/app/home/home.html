@@ -1,15 +1,15 @@
 <!-- MENU SECTION END-->
-<div id="slideshow-sec">
+<div id="slideshow-sec" *ngIf="homeSlider">
     <div id="carousel-div" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="item active">
+            <div [class]="slide.class" *ngFor="let slide of homeSlider">
                 <img src="../../assets/img/1.jpg" alt="" />
                 <div class="carousel-caption">
-                    <h1 class="wow slideInLeft" data-wow-duration="2s"> Multi Pager Template</h1>
-                    <h2 class="wow slideInRight" data-wow-duration="2s">Muti Purpose Use</h2>
+                    <h1 class="wow slideInLeft" data-wow-duration="2s">{{slide.heading1}}</h1>
+                    <h2 class="wow slideInRight" data-wow-duration="2s">{{slide.heading2}}</h2>
                 </div>
             </div>
-            <div class="item">
+            <!--<div class="item">
                 <img src="../../assets/img/2.jpg" alt="" />
                 <div class="carousel-caption">
                     <h1 class="wow slideInLeft" data-wow-duration="2s">Awesome Usage</h1>
@@ -22,14 +22,14 @@
                     <h1 class="wow slideInLeft" data-wow-duration="2s">Easy To Customize </h1>
                     <h2 class="wow slideInRight" data-wow-duration="2s">Free To Download</h2>
                 </div>
-            </div>
+            </div>-->
         </div>
         <!--INDICATORS-->
-        <ol class="carousel-indicators">
+        <!--<ol class="carousel-indicators">
             <li data-target="#carousel-div" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-div" data-slide-to="1"></li>
             <li data-target="#carousel-div" data-slide-to="2"></li>
-        </ol>
+        </ol>-->
         <!--PREVIUS-NEXT BUTTONS-->
         <a class="left carousel-control" href="#carousel-div" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>

@@ -299,6 +299,10 @@ ul#filters {
 		overflow:hidden;
 	}
 	
+.enquiry-form label{
+    font-size: 15px;
+}
+
 
 /* =============================================================
   MEDIA QUERIES 

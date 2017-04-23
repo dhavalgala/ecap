@@ -5,9 +5,13 @@ declare var $: any;
     templateUrl: './home.html',
 })
 export class HomeComponent {
+    homeSlider: any;
+
     ngOnInit() {
+        this.generateSlider();
+
         $('#carousel-div').carousel({
-            interval: 5000 //TIME IN MILLI SECONDS
+            interval: 5000
         });
 
         $('.flexslider').flexslider({
@@ -23,5 +27,21 @@ export class HomeComponent {
                 $('body').removeClass('loading');
             }
         });
+    }
+
+    generateSlider() {
+        this.homeSlider = [{
+            class: "item active",
+            heading1: "Multi Pager Template",
+            heading2: "Muti Purpose Use"
+        },{
+            class: "item",
+            heading1: "Awesome Usage",
+            heading2: "Bootstrap 3.2"
+        },{
+            class: "item",
+            heading1: "Easy To Customize",
+            heading2: "Free To Download"
+        }]
     }
 }
