@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     templateUrl: './contact.html',
@@ -8,6 +8,7 @@ export class ContactComponent {
 
     enquiryModel: any;
     envVars: FormArray;
+    form: FormGroup;
 
     constructor(private fb: FormBuilder) {
         this.envVars = fb.array([fb.group({
@@ -16,35 +17,15 @@ export class ContactComponent {
             category: "",
             misc: ""
         })]);
-    }
 
-    ngOnInit() {
-        // this.enquiryModel = [];
-        // for (let i = 0; i < 10; i++) {
-        //     if (i == 0) {
-        //         this.enquiryModel.push({
-        //             value: "",
-        //             voltage: "",
-        //             category: "",
-        //             misc: "",
-        //             isVisible: true
-        //         });
-        //     } else {
-        //         this.enquiryModel.push({
-        //             value: "",
-        //             voltage: "",
-        //             category: "",
-        //             misc: "",
-        //             isVisible: false
-        //         });
-        //     }
-        // }
-    }
+        this.form = fb.group({
+            name: ["", Validators.required],
+            email: ["", [Validators.required, Validators.email]],
+            contact: ["", Validators.required],
+            productEnquiry: this.envVars
+        });
 
-    isFilled(index: number) {
-        if (this.enquiryModel[index].value && this.enquiryModel[index].category) {
-            this.enquiryModel[index + 1].isVisible = true;
-        }
+        this.form.valueChanges.subscribe(data => this.onValueChanged(data));
     }
 
     addEnvVar() {
@@ -57,12 +38,18 @@ export class ContactComponent {
     }
 
     deleteEnvVar(index: number) {
-        if (this.envVars.length > 1) {
-            this.envVars.removeAt(index);
-        }
+        this.envVars.controls.splice(index, 1);
+        this.form.value.productEnquiry.splice(index, 1);
     }
 
     submitEnquiry() {
-        console.log(this.envVars);
+        console.log(this.form.value);
+    }
+
+    onValueChanged(formValue: any) {
+        let x = formValue.productEnquiry.length - 1;
+        if (formValue.productEnquiry[x]["value"] && formValue.productEnquiry[x]["category"]) {
+            this.addEnvVar();
+        }
     }
 }

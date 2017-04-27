@@ -1,60 +1,76 @@
-<div class="below-slideshow">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="txt-block">
-                    <h1 class="head-line">Contact Us Now</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- TAG HOME SECTION END-->
-<div class="just-sec">
+<div class="">
     <div class="container">
-        <div class="row" *ngFor="let envVar of envVars.controls;let x=index;">
-            <div class="form-group enquiry-form" [formGroup]="envVar">
-                <!--<input formControlName="key" placeholder="Key">
-                <input formControlName="value" placeholder="Value">-->
-                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+        <h3>Enquiry Form</h3>
+        <div class="alert alert-info" *ngIf="form.status==='INVALID'">
+            Fileds marked with * are mandatory
+        </div>
+        <form class="enquiry-form" [formGroup]="form" (ngSubmit)="submitEnquiry()">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
-                        <label>Value</label>
-                        <input type="text" class="form-control" formControlName="value" placeholder="Value">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                    <div class="form-group">
-                        <label>Voltage</label>
-                        <input type="text" class="form-control" formControlName="voltage" placeholder="Voltage">
+                        <label>Name *</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="Name" autocomplete="off">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                     <div class="form-group">
-                        <label>Category</label>
-                        <select class="form-control" formControlName="category">
+                        <label>Email *</label>
+                        <input type="email" class="form-control" formControlName="email" placeholder="Email" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label>Contact *</label>
+                        <input type="text" class="form-control" formControlName="contact" placeholder="Contact" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngFor="let envVar of envVars.controls;let x=index;" formGroupName="productEnquiry">
+                <div class="form-group" [formGroup]="envVar">
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <div class="form-group">
+                            <label>Value</label>
+                            <input type="text" class="form-control" formControlName="value" placeholder="Value" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                        <div class="form-group">
+                            <label>Voltage</label>
+                            <input type="text" class="form-control" formControlName="voltage" placeholder="Voltage" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-control" formControlName="category">
                             <option value="">Select Category</option>
                             <option value="abc">Abc</option>
                             <option value="xyz">Xyz</option>
                         </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                    <div class="form-group">
-                        <label>Misc</label>
-                        <input type="text" class="form-control" formControlName="misc" placeholder="Misc">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                        <div class="form-group">
+                            <label>Misc</label>
+                            <input type="text" class="form-control" formControlName="misc" placeholder="Misc" autocomplete="off">
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-                    <label></label>
-                    <button type="button" class="btn btn-danger" (click)="deleteEnvVar(x)">Delete</button>
+                    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                        <label> </label>
+                        <button type="button" class="btn btn-danger" (click)="deleteEnvVar(x)" *ngIf="envVars.controls.length>1">Delete</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center">
-            <button type="button" class="btn btn-primary" (click)="addEnvVar()">Add Row</button>
-            <button type="button" class="btn btn-success" (click)="submitEnquiry()">Submit</button>
-        </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-primary" [disabled]="form.status==='INVALID'" (click)="addEnvVar()">Add Row</button>
+                    <button type="submit" class="btn btn-success" [disabled]="form.status==='INVALID'">Submit</button>
+                </div>
+            </div>
+        </form>
+        <!--<p>Value: {{ form.value | json }}</p>
+        <p>Validation status: {{ form.status }}</p>-->
         <!--<form class="enquiry-form">
             <div class="row" *ngFor="let enquiry of enquiryModel;let x=index;">
                 <div [style.display]="enquiry.isVisible?'block':'none'">
@@ -92,7 +108,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="just-txt-div">
-                    <h2>Contact Address : </h2>
+                    <h3>Contact Address : </h3>
                     <p>
                         90/567, Raw Street Lane, United States of America,
                         <br /> Pin: 309987-09.
@@ -105,7 +121,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="just-txt-div">
                     <div class="form-group">
                         <label>Enter Your Email</label>
@@ -121,7 +137,7 @@
                     </div>
                     <button type="submit" class="btn btn-success btn-lg">SEND QUERY </button>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

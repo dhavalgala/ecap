@@ -17,8 +17,8 @@ export class HomeComponent {
         $('.flexslider').flexslider({
             animation: "slide",
             animationLoop: true,
-            itemWidth: 200,
-            itemMargin: 15,
+            itemWidth: 400,
+            
             pausePlay: false,
             slideshow: true,                //Boolean: Animate slider automatically
             slideshowSpeed: 5000,
