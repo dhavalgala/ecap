@@ -69,6 +69,12 @@
                 </div>
             </div>
         </form>
+        <div class="alert alert-danger" style="margin-top:10px;" *ngIf="showErrorMsg">
+            Please enter value and select category to submit enquiry
+        </div>
+        <div class="alert alert-success" style="margin-top:10px;" *ngIf="showSuccessMsg">
+            Enquiry submitted successfully
+        </div>
         <!--<p>Value: {{ form.value | json }}</p>
         <p>Validation status: {{ form.status }}</p>-->
         <!--<form class="enquiry-form">

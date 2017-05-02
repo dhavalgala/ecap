@@ -1,8 +1,8 @@
 {
-  "name": "angular-io-example",
+  "name": "ecap",
   "version": "1.0.0",
   "private": true,
-  "description": "Example project from an angular.io guide.",
+  "description": "",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start karma.webpack.conf.js",

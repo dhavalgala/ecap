@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
+
+import { AppService } from './app.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -10,7 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
-  imports: [BrowserModule, ReactiveFormsModule,
+  imports: [BrowserModule, ReactiveFormsModule, HttpModule,
     RouterModule.forRoot(
       [{
         path: '',
@@ -27,6 +30,7 @@ import { ContactComponent } from './contact/contact.component';
       }]
     )],
   declarations: [AppComponent, NavComponent, HomeComponent, AboutComponent, ContactComponent],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

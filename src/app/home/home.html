@@ -1,12 +1,12 @@
 <!-- MENU SECTION END-->
-<div id="slideshow-sec" *ngIf="homeSlider">
+<div id="slideshow-sec" *ngIf="homeSlider.length>0">
     <div id="carousel-div" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div [class]="slide.class" *ngFor="let slide of homeSlider">
                 <img src="../../assets/img/1.jpg" alt="" />
                 <div class="carousel-caption">
-                    <h1 class="wow slideInLeft" data-wow-duration="2s">{{slide.heading1}}</h1>
-                    <h2 class="wow slideInRight" data-wow-duration="2s">{{slide.heading2}}</h2>
+                    <h1 class="wow slideInLeft" data-wow-duration="2s">{{slide.name}}</h1>
+                    <h2 class="wow slideInRight" data-wow-duration="2s">{{slide.text}}</h2>
                 </div>
             </div>
             <!--<div class="item">
@@ -177,18 +177,21 @@
     </div>
 </div>-->
 <!--JUST SECTION END-->
-<div class="container ">
-    <div class="row ">
+<div class="container" *ngIf="productSilder.length>0">
+    <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h1 class="head-line">Our Clients </h1>
             <br />
         </div>
     </div>
-    <div class="row ">
+    <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="flexslider carousel">
                 <ul class="slides">
-                    <li>
+                    <li *ngFor="let product of productSilder">
+                        <img src="../../assets/img/client.jpg" />
+                    </li>
+                    <!--<li>
                         <img src="../../assets/img/client.jpg" />
                     </li>
                     <li>
@@ -196,10 +199,7 @@
                     </li>
                     <li>
                         <img src="../../assets/img/client.jpg" />
-                    </li>
-                    <li>
-                        <img src="../../assets/img/client.jpg" />
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>
