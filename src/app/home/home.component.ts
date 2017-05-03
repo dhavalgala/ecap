@@ -4,8 +4,7 @@ import { AppService } from '../app.service';
 declare var $: any;
 
 @Component({
-    templateUrl: './home.html',
-    providers: [AppService]
+    templateUrl: './home.html'
 })
 
 export class HomeComponent {

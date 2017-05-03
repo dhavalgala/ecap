@@ -44,12 +44,10 @@
     font-size:20px;
 }
 #menu-top a {
-    color:#777;
+    color:#02a3a6;
     text-decoration:none;
-    padding: 25px 15px 25px 15px;
+    padding: 20px 15px;
     font-size:18px;
-    font-weight:600;
-
 }
 .menu-section {
     background-color: #f7f7f7;
@@ -60,22 +58,31 @@
     color: #fff !important;
 }
 .navbar-inverse {
-background-color: #FFF;
-border-color: rgba(155, 153, 153, 0.23);
-
+    background-color: #FFF;
+    border-color: rgba(155, 153, 153, 0.23);
 }
 
 .navbar {
-    margin-bottom: 0px;
+    margin-bottom: -1px;
+    margin-top: -1px;
 }
+
+.navbar-nav {
+    margin: 0 15px;
+}
+
+.navbar-brand {
+    padding: 20px 15px;
+}
+
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     border-color:transparent;
 }
 
 .navbar-inverse .navbar-brand {
-  font-size: 40px;
-  margin: 10px;
+  font-size: 37px;
   color: #02a3a6;
+  margin-left: 0 !important;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -91,7 +98,7 @@ border-color: rgba(155, 153, 153, 0.23);
 }
 
 .nav > li > a:hover, .nav > li > a:focus{
-    background-color: #02a3a6;
+    background-color: #02a3a6 !important;
     color: #fff !important;
 }
 /* =============================================================
@@ -99,29 +106,21 @@ border-color: rgba(155, 153, 153, 0.23);
  ============================================================ */
 
 .carousel-caption {
-    top:50px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.85);
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding: 15px 10px;
 }
     .carousel-caption h1 {
-        text-align:center;
-        font-size:30px;
-        text-transform:uppercase;
-        background-color:rgba(0, 0, 0, 0.65);
-        max-width:440px;
-        padding:15px 25px;
-        
-
-
+        font-size:25px;
+        margin: 5px;
     }
      .carousel-caption h2 {
-        text-align:center;
-        font-size:25px;
-        text-transform:uppercase;
-        background-color:rgba(0, 0, 0, 0.65);
-        max-width:340px;
-        padding:15px 25px;
-        
-
-
+        font-size:20px;
+        margin: 5px;
     }
  /* =============================================================
     PAGE STYLES
@@ -312,18 +311,51 @@ ul#filters {
     font-family: 'Arial', sans-serif;
 }
 
-@media (min-width: 740px) and (max-width: 1040px) {
+@media (min-width: 768px) and (max-width: 1040px) {
+    /*.carousel-caption h2 {
+        font-size: 22px;
+    }*/
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .navbar-brand{
+        padding-top: 25px;
+    }
+
+    #menu-top a {
+        padding: 10px 15px;
+    }
+    .carousel-caption{
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 5px 10px;
+    }
+    .carousel-caption h1 {
+        font-size: 22px;
+    }
+
     .carousel-caption h2 {
-        display: none;
+        font-size: 18px;
     }
 }
 
-@media (min-width: 100px) and (max-width: 740px) {
+@media (min-width: 100px) and (max-width: 480px) {
+    .navbar-brand{
+        padding-top: 25px;
+    }
+    #menu-top a {
+        padding: 10px 15px;
+    }
+    .carousel-caption{
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 2px 10px;
+    }
     .carousel-caption h1 {
-        display: none;
+        font-size: 18px;
     }
 
     .carousel-caption h2 {
-        display: none;
+        font-size: 14px;
     }
 }
