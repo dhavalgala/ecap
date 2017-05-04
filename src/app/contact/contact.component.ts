@@ -14,6 +14,7 @@ export class ContactComponent {
     appService: AppService;
     fb: FormBuilder;
 
+    categories: any[];
     showErrorMsg: boolean = false;
     showSuccessMsg: boolean = false;
 
@@ -21,6 +22,20 @@ export class ContactComponent {
         this.fb = formBuilder;
         this.appService = _appService;
         this.initializeForm();
+    }
+
+    ngOnInit() {
+        this.appService.getAllCategory().subscribe(
+            response => {
+                if (response && response.length > 0) {
+                    response.unshift({ id: "", name: "Select Category" });
+                }
+                this.categories = response;
+            },
+            error => {
+                console.log(error);
+            }
+        )
     }
 
     initializeForm() {

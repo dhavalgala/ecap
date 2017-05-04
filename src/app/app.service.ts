@@ -26,6 +26,11 @@ export class AppService {
             .map(res => res.json());
     }
 
+    getAllCategory() {
+        return this._http.get(this.serverUrl + "json/getAllCategory", { headers: this.headers })
+            .map(res => res.json());
+    }
+
     submitEnquiry(obj: any) {
         return this._http.post(this.serverUrl + "json/getContactInfo", obj,
             { headers: this.headers }).map(res => res.json());
