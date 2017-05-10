@@ -17,7 +17,6 @@ export class AboutComponent {
     ngOnInit() {
         this.appService.getAboutUs().subscribe(
             response => {
-                console.log(response);
                 this.aboutUsContent = response.text;
             },
             error => {

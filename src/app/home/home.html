@@ -3,7 +3,7 @@
     <div id="carousel-div" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div [class]="slide.class" *ngFor="let slide of homeSlider">
-                <img src="../../assets/img/1.jpg" alt="" />
+                <img class="img-responsive" [src]="slide.image | imagePath" alt="" />
                 <div class="carousel-caption">
                     <h1 class="wow slideInLeft" data-wow-duration="2s">{{slide.name}}</h1>
                     <h2 class="wow slideInRight" data-wow-duration="2s">{{slide.text}}</h2>
@@ -40,6 +40,55 @@
     </div>
 </div>
 <!-- SLIDESHOW SECTION END-->
+<div>
+    <div class="text-center">
+        <h1>Special Products</h1>
+    </div>
+    <div id="" *ngIf="productSilder.length>0">
+        <div id="product-carousel-div" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div [class]="slide.class" *ngFor="let slide of productSilder">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                            <img class="img-responsive" [src]="slide.image | imagePath" alt="" />
+                        </div>
+                        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                            <h1 class="wow slideInLeft" data-wow-duration="2s">{{slide.name}}</h1>
+                            <h2 class="wow slideInRight" data-wow-duration="2s">{{slide.text}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--PREVIUS-NEXT BUTTONS-->
+            <a class="left carousel-control" href="#product-carousel-div" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#product-carousel-div" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<!--<div class="container" *ngIf="productSilder.length>0">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="head-line">Our Clients </h1>
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="flexslider carousel">
+                <ul class="slides">
+                    <li *ngFor="let product of productSilder">
+                        <img [src]="product.image | imagePath" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>-->
+
 
 <!--<div class="container">
     <div class="row">
@@ -177,7 +226,7 @@
     </div>
 </div>-->
 <!--JUST SECTION END-->
-<div class="container" *ngIf="productSilder.length>0">
+<!--<div class="container" *ngIf="productSilder.length>0">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h1 class="head-line">Our Clients </h1>
@@ -189,22 +238,13 @@
             <div class="flexslider carousel">
                 <ul class="slides">
                     <li *ngFor="let product of productSilder">
-                        <img src="../../assets/img/client.jpg" />
+                        <img [src]="product.image | imagePath" />
                     </li>
-                    <!--<li>
-                        <img src="../../assets/img/client.jpg" />
-                    </li>
-                    <li>
-                        <img src="../../assets/img/client.jpg" />
-                    </li>
-                    <li>
-                        <img src="../../assets/img/client.jpg" />
-                    </li>-->
                 </ul>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--CLIENT SECTION END-->
 <!--<div class="container ">
     <div class="row">

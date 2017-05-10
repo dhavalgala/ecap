@@ -7,7 +7,9 @@ import { Observable } from 'rxjs/Rx'
 @Injectable()
 export class AppService {
 
-    private serverUrl = "http://localhost/ecapBackend/index.php/";
+    // private serverUrl = "http://localhost/ecapBackend/index.php/";
+    private serverUrl = "http://halb.tk/admin/index.php/";
+    // private serverUrl = "https://halbtk.000webhostapp.com/admin/index.php/";
 
     private headers = new Headers();
 

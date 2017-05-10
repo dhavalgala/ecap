@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppService } from './app.service';
 
+import { ImagePathPipe } from './image-path.pipe';
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
@@ -29,7 +31,7 @@ import { ContactComponent } from './contact/contact.component';
         redirectTo: ''
       }]
     )],
-  declarations: [AppComponent, NavComponent, HomeComponent, AboutComponent, ContactComponent],
+  declarations: [AppComponent, NavComponent, HomeComponent, AboutComponent, ContactComponent, ImagePathPipe],
   providers: [AppService],
   bootstrap: [AppComponent]
 })

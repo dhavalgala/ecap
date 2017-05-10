@@ -23,6 +23,7 @@ export class HomeComponent {
 
     getBothSliders() {
         let count = 0;
+        let productCount = 0;
         this.appService.getSliderByCategory().subscribe(
             response => {
                 for (let i = 0; i < response.length; i++) {
@@ -35,6 +36,12 @@ export class HomeComponent {
                         count++;
                         this.homeSlider.push(response[i]);
                     } else {
+                        if (productCount === 0) {
+                            response[i].class = "item active";
+                        } else {
+                            response[i].class = "item";
+                        }
+                        productCount++;
                         this.productSilder.push(response[i]);
                     }
                 }
@@ -43,18 +50,22 @@ export class HomeComponent {
                         interval: 5000
                     });
 
-                    $('.flexslider').flexslider({
-                        animation: "slide",
-                        animationLoop: true,
-                        itemWidth: 400,
-                        pausePlay: false,
-                        slideshow: true,
-                        slideshowSpeed: 5000,
-                        pauseOnAction: false,
-                        start: function () {
-                            $('body').removeClass('loading');
-                        }
+                    $('#product-carousel-div').carousel({
+                        interval: 5000
                     });
+
+                    // $('.flexslider').flexslider({
+                    //     animation: "slide",
+                    //     animationLoop: true,
+                    //     itemWidth: 400,
+                    //     pausePlay: false,
+                    //     slideshow: true,
+                    //     slideshowSpeed: 5000,
+                    //     pauseOnAction: false,
+                    //     start: function () {
+                    //         $('body').removeClass('loading');
+                    //     }
+                    // });
                 }, 10);
             }, error => {
                 console.log(error);
