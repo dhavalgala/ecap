@@ -3,11 +3,11 @@
     <div id="carousel-div" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div [class]="slide.class" *ngFor="let slide of homeSlider">
-                <img class="img-responsive" [src]="slide.image | imagePath" alt="" />
                 <div class="carousel-caption">
                     <h1 class="wow slideInLeft" data-wow-duration="2s">{{slide.name}}</h1>
                     <h2 class="wow slideInRight" data-wow-duration="2s">{{slide.text}}</h2>
                 </div>
+                <img class="img-responsive" height="800px" [src]="slide.image | imagePath" alt="" />
             </div>
             <!--<div class="item">
                 <img src="../../assets/img/2.jpg" alt="" />

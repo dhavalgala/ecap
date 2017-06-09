@@ -34,6 +34,10 @@
 .pad-top {
      padding-top:50px;
 }
+
+.pdr0 {
+    padding-right: 0;
+}
 /* =============================================================
    NAVBAR & MENU STYLES
  ============================================================ */
@@ -85,9 +89,13 @@
   margin-left: 0 !important;
 }
 
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
+.navbar-inverse .navbar-brand:hover {
   color: #777;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-brand:focus{
+    color: #02a3a6;
   background-color: transparent;
 }
 
