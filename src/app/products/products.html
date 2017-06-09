@@ -1,0 +1,10 @@
+<div class="container-fluid" *ngIf="categories.length>0">
+    <div class="row" *ngFor="let category of categories">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" *ngFor="let cat of category">
+            <div class="text-center">
+                <h3>{{cat.name}}</h3>
+            </div>
+            <img class="img-responsive" [src]="cat.image | imagePath">
+        </div>
+    </div>
+</div>

@@ -6,6 +6,7 @@ import '@angular/common';
 import '@angular/http';
 import '@angular/router';
 import 'jquery';
+import 'lodash';
 // RxJS
 import 'rxjs';
 

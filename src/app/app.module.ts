@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
@@ -27,11 +28,14 @@ import { ContactComponent } from './contact/contact.component';
         path: 'contact',
         component: ContactComponent
       }, {
+        path: 'products',
+        component: ProductsComponent
+      }, {
         path: '**',
         redirectTo: ''
       }]
     )],
-  declarations: [AppComponent, NavComponent, HomeComponent, AboutComponent, ContactComponent, ImagePathPipe],
+  declarations: [AppComponent, NavComponent, HomeComponent, AboutComponent, ProductsComponent, ContactComponent, ImagePathPipe],
   providers: [AppService],
   bootstrap: [AppComponent]
 })
