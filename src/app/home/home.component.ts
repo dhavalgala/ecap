@@ -12,6 +12,7 @@ export class HomeComponent {
     homeSlider: any[] = [];
     productSilder: any[] = [];
     appService: AppService;
+    hideLoader: boolean = false;
 
     constructor(_appService: AppService) {
         this.appService = _appService;
@@ -67,8 +68,10 @@ export class HomeComponent {
                     //     }
                     // });
                 }, 10);
+                this.hideLoader = true;
             }, error => {
                 console.log(error);
+                this.hideLoader = true;
             });
     }
 }

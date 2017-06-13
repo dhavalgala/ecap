@@ -1,0 +1,11 @@
+<loading *ngIf="!hideLoader"></loading>
+<div class="container-fluid pdb20" *ngIf="categories.length>0">
+    <div class="row" *ngFor="let category of categories">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 cp" *ngFor="let cat of category" (click)="getProducts(cat.id)">
+            <div class="text-center">
+                <h3>{{cat.name}}</h3>
+            </div>
+            <img class="img-responsive" [src]="cat.image | imagePath:800">
+        </div>
+    </div>
+</div>

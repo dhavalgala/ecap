@@ -9,6 +9,7 @@ export class AboutComponent {
 
     appService: AppService;
     aboutUsContent: string;
+    hideLoader: boolean = false;
 
     constructor(_appService: AppService) {
         this.appService = _appService;
@@ -18,9 +19,11 @@ export class AboutComponent {
         this.appService.getAboutUs().subscribe(
             response => {
                 this.aboutUsContent = response.text;
+                this.hideLoader = true;
             },
             error => {
                 console.log(error);
+                this.hideLoader = true;
             });
     }
 }

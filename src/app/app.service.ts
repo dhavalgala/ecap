@@ -28,6 +28,11 @@ export class AppService {
             .map(res => res.json());
     }
 
+    getProductsByCategory(categoryId: number) {
+        return this._http.get(this.serverUrl + "json/getProductsByCategory?category=" + categoryId)
+            .map(res => res.json());
+    }
+
     submitEnquiry(obj: any) {
         return this._http.post(this.serverUrl + "json/getContactInfo", obj).map(res => res.json());
     }

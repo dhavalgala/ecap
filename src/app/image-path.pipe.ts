@@ -2,11 +2,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'imagePath' })
 export class ImagePathPipe implements PipeTransform {
-    transform(imageName: string): string {
-        let serverUrl = "http://www.ecap.net.in/admin/uploads/";
+    transform(imageName: string, width: number = 0, height: number = 0): string {
+        let serverUrl = "http://www.ecap.net.in/admin/index.php/image/?name=";
         // let serverUrl = "http://halb.tk/admin/uploads/";
         if (imageName) {
-            return serverUrl + imageName;
+            return serverUrl + imageName + "&width=" + width + "&height=" + height;
         }
         return "";
     }

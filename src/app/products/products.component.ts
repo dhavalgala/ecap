@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { AppService } from '../app.service';
 
@@ -10,24 +11,27 @@ import * as _ from 'lodash';
 export class ProductsComponent {
 
     appService: AppService;
-    categories = <any>[];
+    products = <any>[];
+    showNoProducts: boolean = false;
+    hideLoader: boolean = false;
 
-    constructor(_appService: AppService) {
+    constructor(_appService: AppService, private route: ActivatedRoute) {
         this.appService = _appService;
     }
 
     ngOnInit() {
-        this.appService.getSliderByCategory().subscribe(
+        let categoryId = +this.route.snapshot.params['categoryId'];
+        this.appService.getProductsByCategory(categoryId).subscribe(
             response => {
-                _.each(response, (n) => {
-                    if (n.type === '1') {
-                        this.categories.push(n);
-                    }
-                });
-                this.categories = _.chunk(this.categories, 2);
+                this.products = response;
+                if (this.products.length == 0) {
+                    this.showNoProducts = true;
+                }
+                this.hideLoader = true;
             },
             error => {
                 console.log(error);
+                this.hideLoader = true;
             });
     }
 }

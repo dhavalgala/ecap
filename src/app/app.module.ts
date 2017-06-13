@@ -10,8 +10,10 @@ import { ImagePathPipe } from './image-path.pipe';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import { LoadingComponent } from './loading/loading.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { CategoryComponent } from './category/category.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -29,13 +31,16 @@ import { ContactComponent } from './contact/contact.component';
         component: ContactComponent
       }, {
         path: 'products',
-        component: ProductsComponent
+        component: CategoryComponent
+      }, {
+        path: 'product/:categoryId',
+        component: ProductsComponent,
       }, {
         path: '**',
         redirectTo: ''
       }]
     )],
-  declarations: [AppComponent, NavComponent, HomeComponent, AboutComponent, ProductsComponent, ContactComponent, ImagePathPipe],
+  declarations: [AppComponent, NavComponent, LoadingComponent, HomeComponent, AboutComponent, CategoryComponent, ProductsComponent, ContactComponent, ImagePathPipe],
   providers: [AppService],
   bootstrap: [AppComponent]
 })
