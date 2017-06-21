@@ -7,14 +7,19 @@ import { Observable } from 'rxjs/Rx'
 @Injectable()
 export class AppService {
 
-    // private serverUrl = "http://localhost/ecapBackend/index.php/";
+    private serverUrl = "http://localhost/ecapBackend/index.php/";
     // private serverUrl = "http://halb.tk/admin/index.php/";
-    private serverUrl = "http://www.ecap.net.in/admin/index.php/";
+    // private serverUrl = "http://www.ecap.net.in/admin/index.php/";
 
     constructor(private _http: Http) { }
 
-    getSliderByCategory() {
+    getCategorySlider() {
         return this._http.get(this.serverUrl + "json/getAllSliderWithoutPagination")
+            .map(res => res.json());
+    }
+
+    getSpecialProductSlider() {
+        return this._http.get(this.serverUrl + "json/getSpecialProductSlider")
             .map(res => res.json());
     }
 
@@ -28,8 +33,18 @@ export class AppService {
             .map(res => res.json());
     }
 
+    getSpecialCategory() {
+        return this._http.get(this.serverUrl + "json/getSpecialCategory")
+            .map(res => res.json());
+    }
+
     getProductsByCategory(categoryId: number) {
         return this._http.get(this.serverUrl + "json/getProductsByCategory?category=" + categoryId)
+            .map(res => res.json());
+    }
+
+    getSpecialProductsByCategory(categoryId: number) {
+        return this._http.get(this.serverUrl + "json/getSpecialProductsByCategory?category=" + categoryId)
             .map(res => res.json());
     }
 

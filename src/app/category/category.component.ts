@@ -19,14 +19,9 @@ export class CategoryComponent {
     }
 
     ngOnInit() {
-        this.appService.getSliderByCategory().subscribe(
+        this.appService.getCategorySlider().subscribe(
             response => {
-                _.each(response, (n) => {
-                    if (n.type === '1') {
-                        this.categories.push(n);
-                    }
-                });
-                this.categories = _.chunk(this.categories, 2);
+                this.categories = _.chunk(response, 2);
                 this.hideLoader = true;
             },
             error => {

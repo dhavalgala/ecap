@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductsComponent } from './products/products.component';
+import { SpecialProductsComponent } from './specialproducts/special-products.component';
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
@@ -36,11 +37,14 @@ import { ContactComponent } from './contact/contact.component';
         path: 'product/:categoryId',
         component: ProductsComponent,
       }, {
+        path: 'special-product/:categoryId',
+        component: SpecialProductsComponent,
+      }, {
         path: '**',
         redirectTo: ''
       }]
     )],
-  declarations: [AppComponent, NavComponent, LoadingComponent, HomeComponent, AboutComponent, CategoryComponent, ProductsComponent, ContactComponent, ImagePathPipe],
+  declarations: [AppComponent, NavComponent, LoadingComponent, HomeComponent, AboutComponent, CategoryComponent, ProductsComponent, SpecialProductsComponent, ContactComponent, ImagePathPipe],
   providers: [AppService],
   bootstrap: [AppComponent]
 })

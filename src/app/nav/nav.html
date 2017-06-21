@@ -35,7 +35,7 @@
     </div>
 </section>-->
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" *ngIf="specialCategory.length>0">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -52,6 +52,15 @@
                 </li>
                 <li>
                     <a routerLink="products" routerLinkActive="menu-top-active">Products</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle cp" routerLinkActive="menu-top-active" data-toggle="dropdown">Special Products
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let specialCat of specialCategory">
+                            <a routerLink="special-product/{{specialCat.id}}" routerLinkActive="menu-top-active">{{specialCat.name}}</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a routerLink="about" routerLinkActive="menu-top-active">About</a>

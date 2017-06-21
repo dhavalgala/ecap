@@ -25,53 +25,46 @@ export class HomeComponent {
     getBothSliders() {
         let count = 0;
         let productCount = 0;
-        this.appService.getSliderByCategory().subscribe(
+        this.appService.getCategorySlider().subscribe(
             response => {
                 for (let i = 0; i < response.length; i++) {
-                    if (response[i].type == "1") {
-                        if (count === 0) {
-                            response[i].class = "item active";
-                        } else {
-                            response[i].class = "item";
-                        }
-                        count++;
-                        this.homeSlider.push(response[i]);
+                    if (count === 0) {
+                        response[i].class = "item active";
                     } else {
-                        if (productCount === 0) {
-                            response[i].class = "item active";
-                        } else {
-                            response[i].class = "item";
-                        }
-                        productCount++;
-                        this.productSilder.push(response[i]);
+                        response[i].class = "item";
                     }
+                    count++;
+                    this.homeSlider.push(response[i]);
                 }
                 setTimeout(() => {
                     $('#carousel-div').carousel({
                         interval: 5000
                     });
-
-                    $('#product-carousel-div').carousel({
-                        interval: 5000
-                    });
-
-                    // $('.flexslider').flexslider({
-                    //     animation: "slide",
-                    //     animationLoop: true,
-                    //     itemWidth: 400,
-                    //     pausePlay: false,
-                    //     slideshow: true,
-                    //     slideshowSpeed: 5000,
-                    //     pauseOnAction: false,
-                    //     start: function () {
-                    //         $('body').removeClass('loading');
-                    //     }
-                    // });
                 }, 10);
                 this.hideLoader = true;
             }, error => {
                 console.log(error);
                 this.hideLoader = true;
+            });
+
+        this.appService.getSpecialProductSlider().subscribe(
+            response => {
+                for (let i = 0; i < response.length; i++) {
+                    if (productCount === 0) {
+                        response[i].class = "item active";
+                    } else {
+                        response[i].class = "item";
+                    }
+                    productCount++;
+                    this.productSilder.push(response[i]);
+                }
+                setTimeout(() => {
+                    $('#product-carousel-div').carousel({
+                        interval: 5000
+                    });
+                }, 10);
+            }, error => {
+                console.log(error);
             });
     }
 }

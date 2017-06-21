@@ -148,6 +148,11 @@
     background-color: #02a3a6 !important;
     color: #fff !important;
 }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
+    background-color: #02a3a6 !important;
+    color: #fff !important;
+}
 /* =============================================================
    SLIDESHOW / CAROUSEL STYLES
  ============================================================ */
