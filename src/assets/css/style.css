@@ -19,7 +19,8 @@
     padding-top:30px;
 }
     .just-txt-div p {
-        padding-top:10px;
+        /*padding-top:10px;*/
+        margin-bottom: 3px;
     }
 .head-line {
     font-weight:500;

@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pdr0">
                     <div class="form-group">
-                        <label>Name *</label>
-                        <input type="text" class="form-control" formControlName="name" placeholder="Name" autocomplete="off">
+                        <label>Company/Contact Person Name *</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="Company/Contact Person Name" autocomplete="off">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pdr0">
@@ -64,13 +64,13 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-primary" [disabled]="form.status==='INVALID'" (click)="addEnvVar()">Add Row</button>
+                    <button type="button" class="btn btn-primary" [disabled]="form.status==='INVALID'" (click)="addEnvVar()">Add Product</button>
                     <button type="submit" class="btn btn-success" [disabled]="form.status==='INVALID'">Submit</button>
                 </div>
             </div>
         </form>
         <div class="alert alert-danger" style="margin-top:10px;" *ngIf="showErrorMsg">
-            Please enter value and select category to submit enquiry
+            Please enter value and voltage to submit enquiry
         </div>
         <div class="alert alert-success" style="margin-top:10px;" *ngIf="showSuccessMsg">
             Enquiry submitted successfully
@@ -115,6 +115,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="just-txt-div">
                     <h3>Contact Address : </h3>
+                    <h4>Ecap</h4>
                     <p>
                         102, 103/A3-2, PARANA COMPEX, DAPADE ROAD,
                         <br>BHIWANDI-421308, MAHARASHTRA, INDIA

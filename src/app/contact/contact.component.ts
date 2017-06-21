@@ -28,7 +28,7 @@ export class ContactComponent {
         this.appService.getAllCategory().subscribe(
             response => {
                 if (response && response.length > 0) {
-                    response.unshift({ id: "", name: "Select Category" });
+                    response.unshift({ id: '', name: 'Select Category' });
                 }
                 this.categories = response;
             },
@@ -40,16 +40,16 @@ export class ContactComponent {
 
     initializeForm() {
         this.envVars = this.fb.array([this.fb.group({
-            value: "",
-            voltage: "",
-            category: "",
-            misc: ""
+            value: '',
+            voltage: '',
+            category: '',
+            misc: ''
         })]);
 
         this.form = this.fb.group({
-            name: ["", Validators.required],
-            email: ["", [Validators.required, Validators.email]],
-            contact: ["", Validators.required],
+            name: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            contact: ['', Validators.required],
             productEnquiry: this.envVars
         });
 
@@ -58,10 +58,10 @@ export class ContactComponent {
 
     addEnvVar() {
         this.envVars.push(this.fb.group({
-            value: "",
-            voltage: "",
-            category: "",
-            misc: ""
+            value: '',
+            voltage: '',
+            category: '',
+            misc: ''
         }));
     }
 
@@ -74,11 +74,11 @@ export class ContactComponent {
         let isValid = true;
         for (let i = 0; i < this.form.value.productEnquiry.length; i++) {
             let row = this.form.value.productEnquiry[i];
-            if (i === 0 && !row["value"] && !row["category"]) {
+            if (i === 0 && !row['value'] && !row['category']) {
                 isValid = false;
                 this.showErrorMsg = true;
                 break;
-            } else if (i !== 0 && !row["value"] && !row["category"]) {
+            } else if (i !== 0 && !row['value'] && !row['category']) {
                 this.deleteEnvVar(i);
             }
         }
@@ -103,7 +103,7 @@ export class ContactComponent {
 
     onValueChanged(formValue: any) {
         let x = formValue.productEnquiry.length - 1;
-        if (formValue.productEnquiry[x]["value"] && formValue.productEnquiry[x]["category"]) {
+        if (formValue.productEnquiry[x]['value'] && formValue.productEnquiry[x]['voltage']) {
             this.addEnvVar();
         }
     }
