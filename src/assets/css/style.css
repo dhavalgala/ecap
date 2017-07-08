@@ -154,6 +154,41 @@
     background-color: #02a3a6 !important;
     color: #fff !important;
 }
+
+.details h1, .details h2{
+    font-size:20px;
+}
+
+.cat-name{
+    font-size:19px;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    padding: 0 !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background-color: #02a3a6;
+}
+
+.dropdown-menu li:hover a {
+    color: #fff !important;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+    background-color: #02a3a6;
+}
 /* =============================================================
    SLIDESHOW / CAROUSEL STYLES
  ============================================================ */
@@ -165,14 +200,14 @@
     width: 100%;
     left: 0;
     text-align: left;
-    padding: 15px 10px;
+    padding: 10px 10px;
 }
     .carousel-caption h1 {
-        font-size:25px;
+        font-size:18px;
         margin: 5px;
     }
      .carousel-caption h2 {
-        font-size:20px;
+        font-size:18px;
         margin: 5px;
     }
 
