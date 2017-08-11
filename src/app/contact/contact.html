@@ -5,7 +5,8 @@
         <div class="alert alert-info" *ngIf="form.status==='INVALID'">
             Fileds marked with * are mandatory
         </div>
-        <form class="enquiry-form" [formGroup]="form" (ngSubmit)="submitEnquiry()">
+        <form class="enquiry-form" [formGroup]="form" (ngSubmit)="submitEnquiry()"> 
+        <!-- <form class="enquiry-form" [formGroup]="form"> -->
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pdr0">
                     <div class="form-group">

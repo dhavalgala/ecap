@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 export class AppService {
 
     // private serverUrl = 'http://localhost/ecapBackend/index.php/';
-    private serverUrl = 'http://www.ecap.net.in/admin/index.php/';
+    private serverUrl = 'https://ecap.net.in/admin/index.php/';
 
     constructor(private _http: Http) { }
 
