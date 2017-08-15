@@ -13,6 +13,9 @@
 /* =============================================================
    GENERAL STYLES
  ============================================================ */
+body{
+    background-color: #e8e7e7;
+}
 
 .just-txt-div {
     padding-bottom:30px;
@@ -66,8 +69,8 @@
     transform: translate(-50%,-50%);
 }
 .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #02a3a6; /* Blue */
+    border: 14px solid #f3f3f3; /* Light grey */
+    border-top: 14px solid #02a3a6; /* Blue */
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -195,12 +198,14 @@
 
 .carousel-caption {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgb(89, 89, 89);
     bottom: 0;
     width: 100%;
     left: 0;
-    text-align: left;
+    text-align: center;
     padding: 10px 10px;
+    min-height: 73px;
+    text-shadow: none;
 }
     .carousel-caption h1 {
         font-size:18px;
@@ -217,6 +222,18 @@
 
 .carousel-control.left,.carousel-control.right{
     background: none;
+}
+
+.single-slide{
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.slide-img{
+    display: block;
+    max-width: 100%;
+    max-height: 300px !important;
+    margin: 0px auto;
+    padding-bottom: 10px;
 }
  /* =============================================================
     PAGE STYLES
@@ -416,14 +433,24 @@ ul#filters {
         padding: 10px 15px;
     }
     .carousel-caption{
-        padding: 5px 10px;
+        /* padding: 5px 10px; */
     }
     .carousel-caption h1 {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .carousel-caption h2 {
         font-size: 18px;
+    }
+
+    .details{
+        text-align: center;
+    }
+
+    .details h1, .details h2 {
+        font-size:18px;
+        margin-top: 0;
+        margin-bottom: 5px;
     }
 }
 
@@ -435,13 +462,23 @@ ul#filters {
         padding: 10px 15px;
     }
     .carousel-caption{
-        padding: 2px 10px;
+        /* padding: 2px 10px; */
     }
     .carousel-caption h1 {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .carousel-caption h2 {
-        font-size: 14px;
+        font-size: 15px;
+    }
+
+    .details{
+        text-align: center;
+    }
+
+    .details h1, .details h2 {
+        font-size:15px;
+        margin-top: 0;
+        margin-bottom: 5px;
     }
 }
