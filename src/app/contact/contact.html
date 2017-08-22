@@ -1,84 +1,83 @@
 <!-- TAG HOME SECTION END-->
-<div class="">
-    <div class="container">
-        <h3>Enquiry Form</h3>
-        <div class="alert alert-info" *ngIf="form.status==='INVALID'">
-            Fileds marked with * are mandatory
-        </div>
-        <form class="enquiry-form" [formGroup]="form" (ngSubmit)="submitEnquiry()"> 
+<div style="padding:0 25px;">
+    <h3>Enquiry Form</h3>
+    <div class="alert alert-info" *ngIf="form.status==='INVALID'">
+        Fileds marked with * are mandatory
+    </div>
+    <form class="enquiry-form" [formGroup]="form" (ngSubmit)="submitEnquiry()">
         <!-- <form class="enquiry-form" [formGroup]="form"> -->
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pdr0">
-                    <div class="form-group">
-                        <label>Company/Contact Person Name *</label>
-                        <input type="text" class="form-control" formControlName="name" placeholder="Company/Contact Person Name" autocomplete="off">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pdr0">
-                    <div class="form-group">
-                        <label>Email *</label>
-                        <input type="email" class="form-control" formControlName="email" placeholder="Email" autocomplete="off">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                    <div class="form-group">
-                        <label>Contact *</label>
-                        <input type="text" class="form-control" formControlName="contact" placeholder="Contact" autocomplete="off">
-                    </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pdr0">
+                <div class="form-group">
+                    <label>Company/Contact Person Name *</label>
+                    <input type="text" class="form-control" formControlName="name" placeholder="Company/Contact Person Name" autocomplete="off">
                 </div>
             </div>
-            <div class="row" *ngFor="let envVar of envVars.controls;let x=index;" formGroupName="productEnquiry">
-                <div class="form-group" [formGroup]="envVar">
-                    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 pdr0">
-                        <div class="form-group">
-                            <label>Value</label>
-                            <input type="text" class="form-control" formControlName="value" placeholder="Value" autocomplete="off">
-                        </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pdr0">
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Email" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label>Contact *</label>
+                    <input type="text" class="form-control" formControlName="contact" placeholder="Contact" autocomplete="off">
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngFor="let envVar of envVars.controls;let x=index;" formGroupName="productEnquiry">
+            <div class="form-group" [formGroup]="envVar">
+                <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 pdr0">
+                    <div class="form-group">
+                        <label>Value</label>
+                        <input type="text" class="form-control" formControlName="value" placeholder="Value" autocomplete="off">
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 pdr0">
-                        <div class="form-group">
-                            <label>Voltage</label>
-                            <input type="text" class="form-control" formControlName="voltage" placeholder="Voltage" autocomplete="off">
-                        </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 pdr0">
+                    <div class="form-group">
+                        <label>Voltage</label>
+                        <input type="text" class="form-control" formControlName="voltage" placeholder="Voltage" autocomplete="off">
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pdr0">
-                        <div class="form-group" *ngIf="categories">
-                            <label>Category</label>
-                            <select class="form-control" formControlName="category">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pdr0">
+                    <div class="form-group" *ngIf="categories">
+                        <label>Category</label>
+                        <select class="form-control" formControlName="category">
                             <option value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
                             <!--<option value="abc">Abc</option>
                             <option value="xyz">Xyz</option>-->
                         </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pdr0">
-                        <div class="form-group">
-                            <label>Specific requirements</label>
-                            <input type="text" class="form-control" formControlName="misc" placeholder="Brand, Degree, Size, Pitch, Any other" autocomplete="off">
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-                        <label>&nbsp;</label>
-                        <button type="button" class="btn btn-danger" (click)="deleteEnvVar(x)" *ngIf="envVars.controls.length>1">Delete</button>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-primary" [disabled]="form.status==='INVALID'" (click)="addEnvVar()">Add Product</button>
-                    <button type="submit" class="btn btn-success" [disabled]="form.status==='INVALID'">Submit</button>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pdr0">
+                    <div class="form-group">
+                        <label>Specific requirements</label>
+                        <input type="text" class="form-control" formControlName="misc" placeholder="Brand, Degree, Size, Pitch, Any other" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                    <label>&nbsp;</label>
+                    <button type="button" class="btn btn-danger" (click)="deleteEnvVar(x)" *ngIf="envVars.controls.length>1">Delete</button>
                 </div>
             </div>
-        </form>
-        <div class="alert alert-danger" style="margin-top:10px;" *ngIf="showErrorMsg">
-            Please enter value and voltage to submit enquiry
         </div>
-        <div class="alert alert-success" style="margin-top:10px;" *ngIf="showSuccessMsg">
-            Enquiry submitted successfully
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="button" class="btn btn-primary" [disabled]="form.status==='INVALID'" (click)="addEnvVar()">Add Product</button>
+                <button type="submit" class="btn btn-success" [disabled]="form.status==='INVALID'">Submit</button>
+            </div>
         </div>
-        <!--<p>Value: {{ form.value | json }}</p>
+    </form>
+    <div class="alert alert-danger" style="margin-top:10px;" *ngIf="showErrorMsg">
+        Please enter value and voltage to submit enquiry
+    </div>
+    <div class="alert alert-success" style="margin-top:10px;" *ngIf="showSuccessMsg">
+        Enquiry submitted successfully
+    </div>
+    <!--<p>Value: {{ form.value | json }}</p>
         <p>Validation status: {{ form.status }}</p>-->
-        <!--<form class="enquiry-form">
+    <!--<form class="enquiry-form">
             <div class="row" *ngFor="let enquiry of enquiryModel;let x=index;">
                 <div [style.display]="enquiry.isVisible?'block':'none'">
                     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
@@ -112,24 +111,24 @@
                 </div>
             </div>
         </form>-->
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="just-txt-div">
-                    <h3>Contact Address : </h3>
-                    <h4>Ecap</h4>
-                    <p>
-                        102, 103/A3-2, PARANA COMPEX, DAPADE ROAD,
-                        <br>BHIWANDI-421308, MAHARASHTRA, INDIA
-                    </p>
-                    <p>
-                        <strong>Call: </strong> +91 8369030851
-                    </p>
-                    <p>
-                        <strong>E-mail: </strong> ecapnetin@gmail.com
-                    </p>
-                </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="just-txt-div">
+                <h3>Contact Address : </h3>
+                <h4>Ecap</h4>
+                <p>
+                    102, 103/A3-2, PARANA COMPEX, DAPADE ROAD,
+                    <br>BHIWANDI-421308, MAHARASHTRA, INDIA
+                </p>
+                <p>
+                    <strong>Call: </strong> +91 8369030851
+                </p>
+                <p>
+                    <strong>E-mail: </strong> ecapnetin@gmail.com
+                </p>
             </div>
-            <!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        </div>
+        <!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="just-txt-div">
                     <div class="form-group">
                         <label>Enter Your Email</label>
@@ -146,6 +145,5 @@
                     <button type="submit" class="btn btn-success btn-lg">SEND QUERY </button>
                 </div>
             </div>-->
-        </div>
     </div>
 </div>
